@@ -1,5 +1,6 @@
 package br.com.dio.reactiveflashCard.domain.document;
 
+import lombok.Builder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -17,10 +18,13 @@ public record DeckDocument(
         String descricao,
         Set<Card> cards,
         @CreatedDate
-        @Field("create_at")
+        @Field("created_at")
         OffsetDateTime createdAt,
         @LastModifiedDate
-        @Field("update_at")
-        OffsetDateTime updateAt) {
+        @Field("updated_at")
+        OffsetDateTime updatedAt) {
+        @Builder(toBuilder = true)
+        public DeckDocument {}
+
 
 }

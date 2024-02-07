@@ -1,5 +1,6 @@
 package br.com.dio.reactiveflashCard.domain.document;
 
+import lombok.Builder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -22,4 +23,7 @@ public record StudyDocument(@Id
                             @LastModifiedDate
                             @Field("update_at")
                             OffsetDateTime updateAt) {
+    @Builder(toBuilder = true)
+    public StudyDocument {}
+
 }

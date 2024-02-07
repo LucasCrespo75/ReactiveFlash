@@ -1,4 +1,4 @@
-FROM gradle:8.5-jbr17.0.9
+FROM gradle:8.5-jdk17
 
 RUN apt-get update && apt-get install -qq -y --no-install-recommends
 

@@ -15,16 +15,16 @@ public record UserDocument(@Id
                            String name,
                            String email,
                            @CreatedDate
-                           @Field("createAt")
+                           @Field("createdAt")
                            OffsetDateTime createdAt,
                            @LastModifiedDate
                            @Field("updateAt")
                            OffsetDateTime updateAt) {
 
-/*
+
     @Builder(toBuilder = true)
     public UserDocument {}
-*/
+
 }
 
 
