@@ -1,8 +1,8 @@
-package br.com.dio.reactiveflashCard.domain.service;
+package br.com.dio.reactiveflashCard.core.validation.domain.service;
 
 
-import br.com.dio.reactiveflashCard.domain.document.UserDocument;
-import br.com.dio.reactiveflashCard.domain.repository.UserRepository;
+import br.com.dio.reactiveflashCard.core.validation.domain.document.UserDocument;
+import br.com.dio.reactiveflashCard.core.validation.domain.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -5,12 +5,11 @@ import org.springframework.data.convert.ReadingConverter;
 
 import java.time.OffsetDateTime;
 import java.util.Date;
-public class DateToOffsetDateTimeConverter implements Converter<Date, OffsetDateTime> {
+public class DateToOffsetDateTimeConverter implements Converter<OffsetDateTime ,Date > {
 
 
     @Override
-    public OffsetDateTime convert(final Date date) {
-        return date.toInstant().atOffset(OffsetDateTime.now().getOffset());
-
+    public Date convert(OffsetDateTime source) {
+        return Date.from(source.toInstant());
     }
 }

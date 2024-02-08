@@ -5,6 +5,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.codec.cbor.Jackson2CborEncoder;
+import org.springframework.http.codec.json.Jackson2JsonDecoder;
+import org.springframework.http.codec.json.Jackson2JsonEncoder;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
@@ -29,5 +31,14 @@ public class JacksonConfig {
         return new Jackson2CborEncoder(objectMapper);
     }
 
+    @Bean
+    Jackson2JsonEncoder jackson2JsonEncoder(final ObjectMapper objectMapper) {
+        return new Jackson2JsonEncoder(objectMapper);
+    }
+
+    @Bean
+    Jackson2JsonDecoder jackson2JsonDecoder(final ObjectMapper objectMapper) {
+        return new Jackson2JsonDecoder(objectMapper);
+    }
 
 }
