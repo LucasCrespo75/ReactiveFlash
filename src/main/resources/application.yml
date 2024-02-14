@@ -1,6 +1,8 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   webflux:
     base-path: /reactive-flashCard
   data:
     mongodb:
-      uri: mongodb://reactive-flashCard:reactive-flashCard@db:27017/reactive-flashCard?authSource=admin
+      uri: mongodb://reactive-flashCard:reactive-flashCard@localhost:27017/reactive-flashCard?authSource=admin

@@ -20,15 +20,21 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Validated
 @RestController
 @RequestMapping("usuarios")
-@AllArgsConstructor
+
 public class UserController {
 
-    private final UserService userService;
-    private final UserMapper userMapper;
+    final UserService userService;
+    final UserMapper userMapper;
+
+    public UserController(UserService userService, UserMapper userMapper) {
+        this.userService = userService;
+        this.userMapper = userMapper;
+    }
+
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<UserResponse> criando(@Valid @RequestBody final UserRequest request) {
+    public Mono<UserResponse> criar(@Valid @RequestBody final UserRequest request) {
         return userService.salvar(userMapper.toDocument(request))
                 .doFirst(() -> log.info("SAVING THE DATA {}", request))
                 .map(userMapper::toResponse);

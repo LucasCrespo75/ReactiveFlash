@@ -9,14 +9,17 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Slf4j
-@AllArgsConstructor
 @Service
 public class UserService {
 
-     private final UserRepository userRepository;
+    final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
 
-     public Mono<UserDocument> salvar(final UserDocument userDocument){
+    public Mono<UserDocument> salvar(final UserDocument userDocument){
          return userRepository.save(userDocument)
                  .doFirst(() -> log.info("execute this {} before everything"));
      }

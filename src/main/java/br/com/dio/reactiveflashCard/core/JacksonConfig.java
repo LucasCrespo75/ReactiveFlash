@@ -27,14 +27,10 @@ public class JacksonConfig {
     }
 
     @Bean
-    public Jackson2CborEncoder jackson2CborEncoder(ObjectMapper objectMapper) {
-        return new Jackson2CborEncoder(objectMapper);
-    }
-
-    @Bean
-    Jackson2JsonEncoder jackson2JsonEncoder(final ObjectMapper objectMapper) {
+    public Jackson2JsonEncoder jackson2JsonEncoder(ObjectMapper objectMapper) {
         return new Jackson2JsonEncoder(objectMapper);
     }
+
 
     @Bean
     Jackson2JsonDecoder jackson2JsonDecoder(final ObjectMapper objectMapper) {
